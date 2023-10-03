@@ -31,7 +31,7 @@ namespace Infrastructure.Data.Configuration
 
             builder.HasOne(p => p.Servicios)
             .WithMany(p => p.Citas)
-            .HasForeignKey(p => p.ServicioId);
+            .HasForeignKey(p => p.IdServicioFk);
 
 
         }
