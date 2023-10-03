@@ -15,7 +15,7 @@ public class Mascota : BaseEntity
 
         [Required]
         public int IdRazaFk { get; set; }
-        public Raza Raza { get; set; }
+        public Raza Razas { get; set; }
 
         [Required]
         public DateTime FechaNacimientoMascota { get; set; }

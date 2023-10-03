@@ -22,4 +22,5 @@ public class Cita : BaseEntity
     [Required]
     public int IdServicioFk { get; set; }
     public Servicio Servicios { get; set; }
+    
 }
