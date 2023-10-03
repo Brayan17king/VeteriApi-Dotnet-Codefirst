@@ -4,8 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Core.Entities;
-
-public class BaseEntity
+public class Ciudad : BaseEntity
 {
-    public int Id { get; set; }
+
 }
