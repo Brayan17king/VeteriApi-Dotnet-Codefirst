@@ -14,7 +14,6 @@ public class Cliente : BaseEntity //herencia
     [Required]
     public string EmailCliente { get; set; }
     public ClienteDireccion ClienteDirecciones { get; set; }
-
     public ICollection<ClienteTelefono> ClienteTelefonos { get; set; }
     public ICollection<Mascota> Mascotas { get; set; }
     public ICollection<Cita> Citas { get; set; }
