@@ -20,7 +20,7 @@ public class Cita : BaseEntity
         public int IdMascotaFk { get; set; }
         public Mascota Mascotas { get; set; }
         [Required]
-        public int ServicioId { get; set; }
+        public int IdServicioFk { get; set; }
         public Servicio Servicios { get; set; } 
     
 }
