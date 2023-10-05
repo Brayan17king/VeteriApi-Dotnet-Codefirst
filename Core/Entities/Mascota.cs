@@ -14,12 +14,12 @@ public class Mascota : BaseEntity
         public string Especie { get; set; }
 
         [Required]
-        public int IdRazaFk { get; set; }
-        public Raza Razas { get; set; }
-
-        [Required]
         public DateTime FechaNacimientoMascota { get; set; }
 
+        [Required]
+        public int IdRazaFk { get; set; }
+        public Raza Razas { get; set; }
+        
         [Required]
         public int IdClienteFk { get; set; }
         public Cliente Clientes { get; set; }
