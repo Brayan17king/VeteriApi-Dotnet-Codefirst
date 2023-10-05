@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AspNetCoreRateLimit;
-using Microsoft.Extensions.Options;
+using Core.Interfaces;
+using Infrastructure.UnitOfWork;
 
 namespace API.Extensions
 {
@@ -18,6 +15,12 @@ namespace API.Extensions
                 .AllowAnyHeader(); // WithHeaders("accept", "content-type")
             });
         }); // Remember to put 'static' on the class and to add builder.Services.AddApplicationServices(); to Program.cs and builder.Services.ConfigureCors(); and app.UseCors("CorsPolicy");
+
+        //agregar la unidad de trabajo al scoope
+        public static void AddApplicationServices(this IServiceCollection services)
+        {
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+        }
 
         public static void ConfigureRatelimiting(this IServiceCollection services)
         {
@@ -34,9 +37,9 @@ namespace API.Extensions
                 {
                     new RateLimitRule
                     {
-                        Endpoint = "*",
-                        Period = "10s",
-                        Limit = 2
+                        Endpoint = "*",//todos los enpoints
+                        Period = "10s", //peticiones cada 10 segundos
+                        Limit = 2 // 2 peticiones cada 10 segundos
                     }
                 };
             });
