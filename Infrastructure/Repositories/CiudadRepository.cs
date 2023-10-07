@@ -14,7 +14,7 @@ namespace Infrastructure.Repositories
 
         public CiudadRepository(AnimalsContext context) : base(context)
         {
-           _context = context;
+            _context = context;
         }
     }
 }
