@@ -37,7 +37,7 @@ namespace API.Extensions
                 {
                     new RateLimitRule
                     {
-                        Endpoint = "*",//todos los enpoints
+                        Endpoint = "*", //todos los enpoints
                         Period = "10s", //peticiones cada 10 segundos
                         Limit = 2 // 2 peticiones cada 10 segundos
                     }
