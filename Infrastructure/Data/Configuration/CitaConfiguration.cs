@@ -2,38 +2,24 @@ using Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Data.Configuration
+namespace Infrastructure.Data.Configuration;
+
+public class CitaConfiguration : IEntityTypeConfiguration<Cita>
 {
-    public class CitaConfiguration : IEntityTypeConfiguration<Cita>
+    public void Configure(EntityTypeBuilder<Cita> builder)
     {
-        public void Configure(EntityTypeBuilder<Cita> builder)
-        {
-            // Aquí puedes configurar las propiedades de la entidad Marca
-            // utilizando el objeto 'builder'.
-            builder.ToTable("cita");
+        //Here you can configure the properties using the object 'Builder'.
+        builder.ToTable("cita");
 
-            builder.HasKey(e => e.Id);  
-            builder.Property(e => e.Id);
+        builder.HasKey(c => c.Id);
+        builder.Property(c => c.Id);
 
-            builder.Property(p => p.FechaCita)
-            .HasColumnType("date");
+        builder.Property(c => c.FechaCita).HasColumnType("date");
 
-            builder.Property(p => p.HoraCita)
-            .HasColumnType("time");
+        builder.Property(c => c.HoraCita).HasColumnType("time");
 
-            builder.HasOne(p => p.Clientes)
-            .WithMany(p => p.Citas)
-            .HasForeignKey(p => p.IdClienteFk);
-
-            builder.HasOne(p => p.Mascotas)
-            .WithMany(p => p.Citas)
-            .HasForeignKey(p => p.IdMascotaFk);
-
-            builder.HasOne(p => p.Servicios)
-            .WithMany(p => p.Citas)
-            .HasForeignKey(p => p.IdServicioFk);
-
-
-        }
+        builder.HasOne(c => c.Clientes).WithMany(c => c.Citas).HasForeignKey(c => c.IdClienteFk);
+        builder.HasOne(c => c.Mascotas).WithMany(c => c.Citas).HasForeignKey(c => c.IdMascotaFk);
+        builder.HasOne(c => c.Servicios).WithMany(c => c.Citas).HasForeignKey(c => c.IdServicioFk);
     }
 }
