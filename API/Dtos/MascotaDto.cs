@@ -11,5 +11,7 @@ namespace API.Dtos
         public string NombreMascota { get; set; }
         public string Especie { get; set; }
         public DateTime FechaNacimientoMascota { get; set; }
+        public int IdClienteFk { get; set; }
+        public int IdRazaFk { get; set; }
     }
 }
