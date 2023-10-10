@@ -9,5 +9,6 @@ namespace API.Dtos
     {
         public int Id { get; set; }
         public string NombreServicio { get; set; }
+        public int PrecioServicio { get; set; }
     }
 }
