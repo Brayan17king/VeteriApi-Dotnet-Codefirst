@@ -51,9 +51,9 @@ public class MascotaController : BaseControllerApi
     public async Task<ActionResult<Mascota>> Post(MascotaDto mascotaDto)
     {
         var mascota = _mapper.Map<Mascota>(mascotaDto);
-        if (mascotaDto.FechaNacimientoMascota == DateTime.MinValue)
+        if (mascotaDto.FechaNacimientoMascota == DateOnly.MinValue)
         {
-            mascotaDto.FechaNacimientoMascota = DateTime.Now;
+            mascotaDto.FechaNacimientoMascota = DateOnly.Now;
         }
         _unitOfWork.Mascotas.Add(mascota); //Agregar la informacioon que ya se encuentra en Pais
         await _unitOfWork.SaveAsync();
