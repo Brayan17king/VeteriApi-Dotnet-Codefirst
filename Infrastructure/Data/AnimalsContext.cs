@@ -13,7 +13,7 @@ public class AnimalsContext : DbContext
     public AnimalsContext(DbContextOptions options) : base(options)
     {
     }
-
+    
     public DbSet<Cliente> Clientes { get; set; }
     public DbSet<Cita> Citas { get; set; }
     public DbSet<Ciudad> Ciudades { get; set; }
